@@ -4,7 +4,7 @@ const user = require("../models/userModel");
 const fetchroute = asyncHandler(async (req, res) => {
   try {
     var ischat = chat
-      .find({ user: { $elemMatch: { $eq: req.user._id } } })
+      .find({ users: { $elemMatch: { $eq: req.user._id } } })
       .populate("users", "-password")
       .populate("groupAdmin")
       .populate("latestMessage")
